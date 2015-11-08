@@ -1,0 +1,214 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Madrasa: Questions</title>
+
+
+<link rel="stylesheet" href="jquery/css/custom-theme/jquery-ui-1.8.16.custom.css">
+<script src="jquery/js/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="jquery/js/jquery-1.6.2.min.js"></script>
+
+<script src="jquery/development-bundle/ui/jquery.ui.core.js"></script>
+<script src="jquery/development-bundle/ui/jquery.ui.widget.js"></script>
+<script src="jquery/development-bundle/ui/jquery.ui.mouse.js"></script>
+<script src="jquery/development-bundle/ui/jquery.ui.selectable.js"></script>
+
+<style type="text/css">
+#selectable .ui-widget-content{background: #F5F5F5;}
+#selectable .ui-selecting { background: #ce1616; }
+#selectable .ui-selected { background: #ce1616; color: white; }
+#selectable { list-style-type: none; margin: 0; padding: 0; }
+#selectable li { margin: 3px; padding: 0.4em; font-size: 16px; height: 18px; width: 200px;}
+</style>
+
+<script type="text/javascript">
+$(function() {
+	$( "#selectable" ).selectable();
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+.logo {
+	position: absolute;	
+	left: 50px; top: 26px
+}
+
+.icon_logout {
+	position: absolute;
+	right: 100px; top: 20px;
+}
+
+.icon_competition {
+	position: absolute;
+	right: 140px; top: 20px;
+
+}
+.icon_report {
+	position: absolute;
+	right: 140px; top: 20px;
+
+}
+
+
+td {	
+	vertical-align:middle;
+	text-align:center;
+	border-style:hidden;
+	padding-left: 30px;
+	font-family: Tahoma;
+	font-size: 22px;
+}
+
+
+.icon:hover {
+	opacity:0.8;
+}
+
+.auto-style1 {
+	margin-top: 0px;
+}
+
+.auto-style2 {
+	text-align: right;
+}
+
+</style>
+
+</head>
+<body style="direction:rtl;">
+
+
+<!--
+<div style="background-image: url('icons/bg_3.png'); background-repeat:repeat-x; position: absolute; top:100px; left:0px; width:1000px; height:20px;"></div>
+-->
+
+<div style="background:#EFEFEF; repeat-x; position: absolute; top:101px; right:0px; width:100%; height:7px;"></div>
+<div style="background:#EFEFEF;repeat-x; position: absolute; top:177px; left:0px; width:22%; height:7px;"></div>
+<div style="background:#EFEFEF; position: absolute; top:320px; right:34px; width:600px; height: 2px;" class="auto-style2"></div>
+<img src="images/logo_silver_no_text.png"  style="right: 19px; top: 7px; position:absolute;" height="90" />
+
+
+<img src="images/log_out.png" class="icon_logout icon" style="top: 44px; right: 1168px; margin-bottom: 0px;" height="40" />
+<img alt="" src="images/1_2_3.png" height="70" class="icon" style="position: absolute; top: 24px; right: 1084px;  "/>
+<img alt="" src="images/report.png" class="icon" style="position: absolute; top:33px; right: 1014px; " height="60" />
+
+
+
+<div style="position: absolute; top: 164px; right: 97px; font-family:Tahoma">
+<p>احسب:</p>
+<p style="margin-right: 60px; margin-top: 30px;"><img src="images/power_question.gif" class="auto-style1" /></p>
+</div>
+
+<div style="position: absolute;top: 130px; left:8px;">
+	<table style="border-collapse:collapse;">
+	<tr>
+		<td>قوة</td>
+		<td><img alt="" src="images/power.png" style="height:auto; width: 140px;" /></td>
+	</tr>
+	</table>
+</div>
+
+
+
+<div style="position: absolute;top: 362px; right:100px; font-family:Tahoma;">
+
+<p>اضغط على الاجابة الصحيحة:</p>
+
+<div style="margin-right: 60px; margin-top: 30px;">
+<ol id="selectable">
+	<li class="ui-widget-content">25</li>
+	<li class="ui-widget-content">50</li>
+	<li class="ui-widget-content">100</li>
+	<li class="ui-widget-content">125</li>
+	<li class="ui-widget-content">لا اعرف</li>
+</ol>
+</div>
+
+
+</div>
+
+<img alt="" src="images/arrow_left_2.PNG" style="position:absolute; right: 163px; top: 622px;" />
+
+
+
+<div id="canvasDiv" style="z-index: 99999;"></div>
+<script>
+	var canvasDiv = document.getElementById('canvasDiv');
+	canvas = document.createElement('canvas');
+	canvas.setAttribute('width', '1200');
+	canvas.setAttribute('height', '650');
+	canvas.setAttribute('id', 'canvas');
+	canvasDiv.appendChild(canvas);
+	if(typeof G_vmlCanvasManager != 'undefined') {
+		canvas = G_vmlCanvasManager.initElement(canvas);
+	}
+	context = canvas.getContext("2d");
+	
+	$('#canvas').mousedown(function(e){
+	  var mouseX = e.pageX - this.offsetLeft;
+	  var mouseY = e.pageY - this.offsetTop;
+			
+	  paint = true;
+	  addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+	  redraw();
+	});
+	$('#canvas').mousemove(function(e){
+	  if(paint){
+		addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+		redraw();
+	  }
+	});
+	$('#canvas').mouseup(function(e){
+	  paint = false;
+	});
+	$('#canvas').mouseleave(function(e){
+	  paint = false;
+	});
+	var clickX = new Array();
+	var clickY = new Array();
+	var clickDrag = new Array();
+	var paint;
+
+	function addClick(x, y, dragging)
+	{
+	  clickX.push(x);
+	  clickY.push(y);
+	  clickDrag.push(dragging);
+	}
+	function redraw(){
+	  canvas.width = canvas.width; // Clears the canvas
+	  
+	  context.strokeStyle = "#ce1616";
+	  context.lineJoin = "round";
+	  context.lineWidth = 5;
+				
+	  for(var i=0; i < clickX.length; i++)
+	  {		
+		context.beginPath();
+		if(clickDrag[i] && i){
+		  context.moveTo(clickX[i-1], clickY[i-1]);
+		 }else{
+		   context.moveTo(clickX[i]-1, clickY[i]);
+		 }
+		 context.lineTo(clickX[i], clickY[i]);
+		 context.closePath();
+		 context.stroke();
+	  }
+	}
+	
+</script>
+
+</body>
+</html>

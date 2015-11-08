@@ -1,0 +1,145 @@
+﻿body 
+{
+	background: white;
+	color: black;
+	font-family: Arial, Helvetica, Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	direction:rtl;
+}
+
+
+#pageTitle
+{
+	width:90%;
+	font-weight:bold;
+	text-align: center;
+	position:absolute;
+	top:0px;
+	right:50px;
+	color: navy;
+	background-color: #F2F2FF;
+	border: thin solid #DDEEFF;
+	font-size: 20px;
+	padding:6px;
+}
+
+h1
+{
+	text-align: center;
+	margin: auto;
+	color: navy;
+	background-color: #F2F2FF;
+	border: thin solid #DDEEFF;
+	font-size: 20px;
+	padding: 6px;
+}
+
+
+h2
+{
+	color: blue;
+	background-color: #F2F2FF;
+	border: thin solid #DDEEFF;
+	padding: 8px;
+	width: 150px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+#subSubject
+{
+	background-color: #F2F2FF;
+	border: thin solid #DDEEFF;
+	padding: 2px;
+	width: 150px;
+	font-size:13px;
+	font-weight:bold;
+	padding: 5px;
+}
+
+#subject
+{
+	width: 800px;
+	padding: 10px;
+	font-size: 12px;
+}
+
+#pageBody
+{
+	width:900px; 
+	/*margin-left: auto; 
+	margin-right: auto;*/
+	margin-right: 200px;
+	font-size: 12px;
+}
+
+.searchTextBox
+{
+	width: 309px;
+	font-size: 12px;
+}
+
+
+.subjectsTable
+{
+	width:900px;
+	font-size: 12px;
+}
+
+.subjectsTable td
+{
+	width:300px;
+	vertical-align:top;
+	font-size: 12px;
+}
+
+indexQuestionsTable tr, td
+{
+	vertical-align:top;
+	padding:20px;
+	font-size: 12px;
+}
+
+
+
+/*<fileName="search.php">*/
+
+#tableHeader
+{
+	width:120px;
+	background-color:#bfdaff;
+	text-align:center;
+	font-size:15px;
+	padding:10px;
+}
+
+#searchPageBody
+{
+	text-align:center;
+	font-size: 12px;
+}
+#questionsTable
+{
+	width:900px;
+	text-align:right;
+	font-size: 12px;
+}
+
+#questionsTable th
+{
+	width:120px;
+	background-color:#bfdaff;
+	text-align:center;
+	font-size:15px;
+	padding:10px;
+}
+
+#questionsTable td
+{
+	vertical-align:middle;
+	padding: 4px;
+	font-size: 12px;
+}
+/*</fileName="search.php">*/
+	
